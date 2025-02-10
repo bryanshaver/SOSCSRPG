@@ -7,9 +7,9 @@ using Engine.Models;
 
 namespace Engine.Factories
 {
-    internal class WorldFactory
+    internal static class WorldFactory
     {
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World newWorld = new World();
             newWorld.AddLocation(0, -1, "Home", 
@@ -42,7 +42,7 @@ namespace Engine.Factories
 
             newWorld.AddLocation(2, 0,
                 "Spider Forest",
-                "TThe trees in this forest are covered in spider webs.",
+                "The trees in this forest are covered in spider webs.",
                 "pack://application:,,,/Engine;component/Images/Locations/SpiderForest.png");
 
             newWorld.AddLocation(0, 1,
