@@ -8,8 +8,7 @@ namespace Engine.Models
 {
     public class World
     {
-        private List<Location> _locations = new List<Location>();
-
+        private readonly List<Location> _locations = new List<Location>();
         internal void AddLocation(int xCoordinate, int yCoordinate, string name, string description, string imageName)
         {
             Location loc = new Location();
@@ -17,22 +16,19 @@ namespace Engine.Models
             loc.YCoordinate = yCoordinate;
             loc.Name = name;
             loc.Description = description;
-            loc.ImageName = imageName;
-
+            loc.ImageName = $"/Engine;component/Images/Locations/{imageName}";
             _locations.Add(loc);
         }
-
         public Location LocationAt(int xCoordinate, int yCoordinate)
         {
-            foreach(Location loc in _locations)
+            foreach (Location loc in _locations)
             {
-                if(loc.XCoordinate == xCoordinate && loc.YCoordinate == yCoordinate)
+                if (loc.XCoordinate == xCoordinate && loc.YCoordinate == yCoordinate)
                 {
                     return loc;
                 }
             }
-
-            return null; // If we have checked every location and there is no match for the coordinates then return nothing.
+            return null;
         }
     }
 }
