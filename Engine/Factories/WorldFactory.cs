@@ -25,6 +25,8 @@ namespace Engine.Factories
                 "There are rows of corn growing her, with giant rats hiding between them.", 
                 "pack://application:,,,/Engine;component/Images/Locations/FarmFields.png");
 
+            newWorld.LocationAt(-2, -1).AddMonster(2, 100);
+
             newWorld.AddLocation(-1, 0,
                 "Trading Shop",
                 "The shop of Susan, the Trader.",
@@ -45,6 +47,8 @@ namespace Engine.Factories
                 "The trees in this forest are covered in spider webs.",
                 "pack://application:,,,/Engine;component/Images/Locations/SpiderForest.png");
 
+            newWorld.LocationAt(2, 0).AddMonster(3, 100);
+
             newWorld.AddLocation(0, 1,
                 "Herbalist's hut",
                 "You see a small hut, with plants drying from the roof",
@@ -56,6 +60,8 @@ namespace Engine.Factories
                 "Herbalist's Garden",
                 "There are many plants here, with snakes hiding behind them.",
                 "pack://application:,,,/Engine;component/Images/Locations/HerbalistsGarden.png");
+
+            newWorld.LocationAt(0, 2).AddMonster(1, 100);
 
             return newWorld;
         }
