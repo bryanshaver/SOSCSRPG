@@ -50,5 +50,13 @@ namespace WPFUI
             GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
             GameMessages.ScrollToEnd();
         }
+
+        private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
+        {
+            TradeScreen tradescreen = new TradeScreen();
+            tradescreen.Owner = this;
+            tradescreen.DataContext = _gameSession;
+            tradescreen.ShowDialog();
+        }
     }
 }
