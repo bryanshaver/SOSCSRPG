@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Engine.EventArgs;
+using Engine.Models;
 using Engine.ViewModels;
 
 namespace WPFUI
@@ -45,7 +46,6 @@ namespace WPFUI
         {
             _gameSession.AttackCurrentMonster();
         }
-
         private void OnClick_UseCurrentConsumable(object sender, RoutedEventArgs e)
         {
             _gameSession.UseCurrentConsumable();
@@ -55,13 +55,17 @@ namespace WPFUI
             GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
             GameMessages.ScrollToEnd();
         }
-
         private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
         {
-            TradeScreen tradescreen = new TradeScreen();
-            tradescreen.Owner = this;
-            tradescreen.DataContext = _gameSession;
-            tradescreen.ShowDialog();
+            TradeScreen tradeScreen = new TradeScreen();
+            tradeScreen.Owner = this;
+            tradeScreen.DataContext = _gameSession;
+            tradeScreen.ShowDialog();
+        }
+        private void OnClick_Craft(object sender, RoutedEventArgs e)
+        {
+            Recipe recipe = ((FrameworkElement)sender).DataContext as Recipe;
+            _gameSession.CraftItemUsing(recipe);
         }
     }
 }
